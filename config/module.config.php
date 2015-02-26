@@ -12,10 +12,10 @@ return array(
     ),
     'router' => array(
         'routes' => array(
-            'unapi-server' => array(
+            'unapi' => array(
                 'type' => 'Literal',
                 'options' => array(
-                    'route' => '/unapi-server',
+                    'route' => '/unapi',
                     'defaults' => array(
                         '__NAMESPACE__' => 'UnApi\Controller',
                         'controller'    => 'Index',
