@@ -28,24 +28,22 @@ class Module extends AbstractModule
                 ));
             }
         );
-        $filterManager->attach(
+        $sharedEventManager->attach(
             'Omeka\Controller\Admin\Item',
             'view.browse.after',
-            function ($arg, EventInterface $event) {
+            function (EventInterface $event) {
                 $items = $event->getTarget()->items;
                 foreach ($items as $item) {
-                    $arg[] = sprintf('<abbr class="unapi-id" title="%s"></abbr>', $item->id());
+                    echo sprintf('<abbr class="unapi-id" title="%s"></abbr>', $item->id());
                 }
-                return $arg;
             }
         );
-        $filterManager->attach(
+        $sharedEventManager->attach(
             'Omeka\Controller\Admin\Item',
             'view.show.after',
-            function ($arg, EventInterface $event) {
+            function (EventInterface $event) {
                 $item = $event->getTarget()->item;
-                $arg[] = sprintf('<abbr class="unapi-id" title="%s"></abbr>', $item->id());
-                return $arg;
+                echo sprintf('<abbr class="unapi-id" title="%s"></abbr>', $item->id());
             }
         );
     }
