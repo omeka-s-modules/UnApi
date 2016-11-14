@@ -12,10 +12,7 @@ class Module extends AbstractModule
         return include __DIR__ . '/config/module.config.php';
     }
 
-    public function attachListeners(
-        SharedEventManagerInterface $sharedEventManager,
-        SharedEventManagerInterface $filterManager
-    ) {
+    public function attachListeners(SharedEventManagerInterface $sharedEventManager) {
         $sharedEventManager->attach(
             'Omeka\Controller\Admin\Item',
             'view.layout',
