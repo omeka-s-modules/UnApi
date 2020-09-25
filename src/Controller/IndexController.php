@@ -2,9 +2,7 @@
 namespace UnApi\Controller;
 
 use EasyRdf_Graph;
-use Omeka\Mvc\Exception;
 use Laminas\Mvc\Controller\AbstractActionController;
-use Laminas\View\Model\ViewModel;
 
 class IndexController extends AbstractActionController
 {
