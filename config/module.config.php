@@ -1,13 +1,20 @@
 <?php
+namespace UnApi;
+
 return [
-    'controllers' => [
-        'invokables' => [
-            'UnApi\Controller\Index' => 'UnApi\Controller\IndexController',
-        ],
-    ],
     'view_manager' => [
         'template_path_stack' => [
-            OMEKA_PATH . '/module/UnApi/view',
+            dirname(__DIR__) . '/view',
+        ],
+    ],
+    'form_elements' => [
+        'invokables' => [
+            Form\ConfigForm::class => Form\ConfigForm::class,
+        ],
+    ],
+    'controllers' => [
+        'invokables' => [
+            Controller\IndexController::class => Controller\IndexController::class,
         ],
     ],
     'router' => [
@@ -18,11 +25,16 @@ return [
                     'route' => '/unapi',
                     'defaults' => [
                         '__NAMESPACE__' => 'UnApi\Controller',
-                        'controller' => 'Index',
+                        'controller' => 'IndexController',
                         'action' => 'index',
                     ],
                 ],
             ],
+        ],
+    ],
+    'unapi' => [
+        'config' => [
+            'unapi_public_server' => true,
         ],
     ],
 ];
